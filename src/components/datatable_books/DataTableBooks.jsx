@@ -1,10 +1,10 @@
-import "./datatable.scss";
+import "./datatableBooks.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import { userColumns, userRows } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-const Datatable = () => {
+const DataTableBooks = () => {
   const [data, setData] = useState(userRows);
 
   const handleDelete = (id) => {
@@ -19,9 +19,7 @@ const Datatable = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
-              <div className="viewButton">View</div>
-            </Link>
+            
             <div
               className="deleteButton"
               onClick={() => handleDelete(params.row.id)}
@@ -33,20 +31,23 @@ const Datatable = () => {
       },
     },
   ];
-
-  
   return (
     <div className="datatable">
+
+     {/* Add new Book */}
       <div className="datatableTitle">
-        Add New User
-        <Link to="/users/new" className="link">
+        Add New Book
+        <Link to="/books/newBook" className="link">
           Add New
         </Link>
       </div>
+
+
       <DataGrid
         className="datagrid"
         rows={data}
         columns={userColumns.concat(actionColumn)}
+        //columns={userColumns}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
@@ -55,4 +56,4 @@ const Datatable = () => {
   );
 };
 
-export default Datatable;
+export default DataTableBooks;

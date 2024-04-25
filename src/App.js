@@ -10,6 +10,9 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import NewsLetter from "./pages/newsLetter/NewsLetter";
 
+import Book from "./pages/Book/Book";
+import NewBook from "./pages/newBook/NewBook";
+
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
@@ -29,11 +32,11 @@ function App() {
               />
             </Route>
             <Route path="books">
-              <Route index element={<List />} />
-              <Route path=":bookId" element={<Single />} />
+              <Route index element={<Book />} />
+              {/* <Route path=":bookId" element={<Single />} /> */}
               <Route
-                path="new"
-                element={<New inputs={productInputs} title="Add New Book" />}
+                path="newBook"
+                element={<NewBook inputs={productInputs}/>}
               />
             </Route>
 
