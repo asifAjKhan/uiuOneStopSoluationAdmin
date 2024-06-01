@@ -13,10 +13,10 @@
 
     .link{
       text-decoration: none;
-      color: green;
+      color: black;
       font-size: 16px;
       font-weight: 400;
-      border: 1px solid green;
+      border: 1px solid black;
       padding: 5px;
       border-radius: 5px;
       cursor: pointer;
@@ -73,6 +73,10 @@
       color: crimson;
       border: 1px dotted rgba(220, 20, 60, 0.6);
       cursor: pointer;
+
+      &hover{
+        background-color: #ff9900;
+      }
     }
   }
 }

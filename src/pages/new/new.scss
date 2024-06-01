@@ -13,6 +13,7 @@
       margin: 20px;
       display: flex;
 
+
       h1 {
         color: lightgray;
         font-size: 20px;
@@ -64,11 +65,13 @@
             width: 150px;
             padding: 10px;
             border: none;
-            background-color: teal;
+            background-color: #ff9900;
             color: white;
             font-weight: bold;
             cursor: pointer;
             margin-top: 10px;
+            border-radius: 10px;
+            margin-bottom: 100px;
           }
         }
       }

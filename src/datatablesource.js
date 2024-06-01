@@ -1,14 +1,14 @@
 export const userColumns = [
   { field: "id", headerName: "ID", width: 70 },
   {
-    field: "user",
-    headerName: "User",
+    field: "name",
+    headerName: "Name",
     width: 230,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} alt="avatar" />
-          {params.row.username}
+          <img className="cellImg" src={params.row.photo} alt="avatar" />
+          {params.row.name}
         </div>
       );
     },
@@ -18,25 +18,98 @@ export const userColumns = [
     headerName: "Email",
     width: 230,
   },
-
   {
-    field: "Depart",
-    headerName: "Depart.",
-    width: 100,
-  },
-  {
-    field: "status",
-    headerName: "Status",
+    field: "Role",
+    headerName: "Role",
     width: 160,
     renderCell: (params) => {
       return (
-        <div className={`cellWithStatus ${params.row.status}`}>
-          {params.row.status}
+        <div className={`cellWithStatus`}>
+          Admin
         </div>
       );
     },
   },
 ];
+
+
+
+
+// event column
+
+export const eventColumn = [
+  { field: "_id", headerName: "ID", width: 300 },
+  {
+    field: "name",
+    headerName: "name",
+    width: 500,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          <img className="cellImg" src={`${process.env.REACT_APP_SERVER_PORT}/${params.row.logo}`} alt="avatar" />
+          {params.row.name}
+        </div>
+      );
+    },
+  },
+  
+  {
+    field: "date",
+    headerName: "date",
+    width: 160,
+    
+   
+  },
+];
+
+
+
+
+
+
+
+
+
+export const bookColumn = [
+  { field: "_id", headerName: "ID", width: 300 },
+  {
+    field: "name",
+    headerName: "name",
+    width: 500,
+    renderCell: (params) => {
+      return (
+        <div className="cellWithImg">
+          <img className="cellImg" src={`${process.env.REACT_APP_SERVER_PORT} ${params.row.img}`} alt="avatar" />
+          {params.row.name}
+        </div>
+      );
+    },
+  },
+  
+  {
+    field: "description",
+    headerName: "Description",
+    width: 160,
+    
+   
+  },
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //temporary data
 export const userRows = [
@@ -121,3 +194,63 @@ export const userRows = [
     Depart: "cse",
   },
 ];
+
+
+
+
+//event data
+
+
+export const eventRows = [
+  {
+    id: 1,
+    name: "Snow",
+    logo: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    email: "1snow@gmail.com",
+    date: "cse",
+  },
+  {
+    id: 2,
+    name: "Jamie Lannister",
+    logo: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    email: "2snow@gmail.com",
+    date: "cse",
+  },
+  {
+    id: 3,
+    name: "Lannister",
+    logo: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    email: "3snow@gmail.com",
+    date: "cse",
+  },
+  {
+    id: 4,
+    name: "Lannister",
+    logo: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    email: "3snow@gmail.com",
+    date: "cse",
+  },
+  {
+    id: 5,
+    name: "Lannister",
+    logo: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    email: "3snow@gmail.com",
+    date: "cse",
+  },
+  {
+    id: 6,
+    name: "Lannister",
+    logo: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    email: "3snow@gmail.com",
+    date: "cse",
+  },
+  {
+    id: 7,
+    name: "Lannister",
+    logo: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    email: "3snow@gmail.com",
+    date: "cse",
+  },
+ 
+];
+

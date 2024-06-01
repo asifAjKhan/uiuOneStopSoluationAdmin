@@ -1,16 +1,49 @@
 import "./datatableBooks.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../../datatablesource";
+import { bookColumn, userRows } from "../../datatablesource";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const DataTableBooks = () => {
-  const [data, setData] = useState(userRows);
 
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
-  };
+  const [data, setData] = useState([]);
 
+
+  const fatchAllBook = async () => {
+    try{
+      const response =  await axios.get("http://localhost:5000/admin/book")
+      console.log("Hellow")
+      console.log(response.data)
+      if(response.data)
+      setData(response.data)
+
+    }catch(err){
+      console.log(err)
+    }
+      
+
+  }
+
+
+ useEffect(() => {
+   fatchAllBook();
+
+ }, [])
+
+
+  const handleDelete = async (id) => {
+
+      try{
+        const response = await axios.delete(`http://localhost:5000/admin/book/${id}`)
+        fatchAllBook();
+      }catch(err){
+        console.log(err)
+      }
+  }
+
+
+  
   const actionColumn = [
     {
       field: "action",
@@ -22,7 +55,7 @@ const DataTableBooks = () => {
             
             <div
               className="deleteButton"
-              onClick={() => handleDelete(params.row.id)}
+              onClick={() => handleDelete(params.row._id)}
             >
               Delete
             </div>
@@ -46,8 +79,8 @@ const DataTableBooks = () => {
       <DataGrid
         className="datagrid"
         rows={data}
-        columns={userColumns.concat(actionColumn)}
-        //columns={userColumns}
+        columns={bookColumn.concat(actionColumn)}
+        getRowId={(row) => row._id}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection

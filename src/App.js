@@ -1,5 +1,5 @@
 import Home from "./pages/home/Home";
-import Login from "./pages/login/Login";
+import Login from "./pages/register/Login.jsx"
 import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
@@ -12,6 +12,9 @@ import NewsLetter from "./pages/newsLetter/NewsLetter";
 
 import Book from "./pages/Book/Book";
 import NewBook from "./pages/newBook/NewBook";
+import Event from "./pages/event/Event";
+import ShowEvent from "./pages/showEvent/ShowEvent";
+import Register from "./pages/register/Register.jsx";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -23,6 +26,7 @@ function App() {
           <Route path="/">
             <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
             <Route path="users">
               <Route index element={<List />} />
               <Route path=":userId" element={<Single />} />
@@ -41,6 +45,11 @@ function App() {
             </Route>
 
             <Route path="newsletter" element={<NewsLetter />}/>
+            <Route path="event" >
+                <Route index element={<ShowEvent />} />
+                <Route path="newEvent" element={<Event />}/>
+            </Route>
+
 
            
           </Route>

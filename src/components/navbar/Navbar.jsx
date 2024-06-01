@@ -9,8 +9,23 @@ import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 
+import { AuthContext } from "../../context/authContext";
+
+import { useNavigate } from "react-router-dom";
+
 const Navbar = () => {
   const { dispatch } = useContext(DarkModeContext);
+  const {currentUser, logout} = useContext(AuthContext)
+
+  const navigate = useNavigate()
+
+  const handleLogOut = () => {
+      logout()
+      navigate('/login')
+  }
+
+
+  console.log(currentUser)
 
   return (
     <div className="navbar">
@@ -37,11 +52,19 @@ const Navbar = () => {
           </div>
     
           <div className="item">
-            <img
-              src="https://images.pexels.com/photos/941693/pexels-photo-941693.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+            {currentUser && <img
+              src={currentUser.photo}
               alt=""
               className="avatar"
             />
+
+            }
+
+
+           { currentUser && <button 
+            style={{backgroundColor : "#ff9900", marginLeft:' 20px',  fontWeight : 800, color : 'white', padding : "8px", border : 'none', borderRadius : '5px'}} onClick={handleLogOut}>
+            Logout</button>}
+            
           </div>
         </div>
       </div>

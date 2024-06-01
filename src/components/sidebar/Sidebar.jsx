@@ -14,14 +14,32 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
+import EventIcon from '@mui/icons-material/Event';
 
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 
+import { AuthContext } from "../../context/authContext";
+
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
+
+  const {logout} = useContext(AuthContext)
+
+  const navigate = useNavigate()
+
+  const handleLogOut = () => {
+    logout()
+    navigate("/login")
+  }
+
+  const clinkProfile = () => {
+    navigate("/users/test")
+  }
+
+
   return (
     <div className="sidebar">
       <div className="top">
@@ -35,7 +53,7 @@ const Sidebar = () => {
           <p className="title">MAIN</p>
           <li>
             <DashboardIcon className="icon" />
-            <span>Dashboard</span>
+            <span onClick={()=> navigate("/")}>Dashboard</span>
           </li>
           <p className="title">LISTS</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
@@ -59,6 +77,14 @@ const Sidebar = () => {
             </li>
 
           </Link>
+          <Link to="/event"  style={{ textDecoration: "none" }}>
+          
+            <li>
+              <EventIcon className="icon" />
+              <span>Events</span>
+            </li>
+
+          </Link>
           <li>
             <LocationCityIcon className="icon" />
             <span>property approvbal</span>
@@ -78,11 +104,11 @@ const Sidebar = () => {
           <p className="title">USER</p>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
-            <span>Profile</span>
+            <span onClick={clinkProfile}>Profile</span>
           </li>
           <li>
             <ExitToAppIcon className="icon" />
-            <span>Logout</span>
+            <span onClick={handleLogOut}>Logout</span>
           </li>
         </ul>
       </div>

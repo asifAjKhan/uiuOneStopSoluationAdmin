@@ -7,6 +7,8 @@ import Chart from "../../components/chart/Chart";
 import Table from "../../components/table/Table";
 
 const Home = () => {
+
+  console.log(process.env.REACT_APP_SERVER_PORT)
   return (
     <div className="home">
       <Sidebar />

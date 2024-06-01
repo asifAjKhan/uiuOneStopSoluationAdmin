@@ -1,31 +1,23 @@
 export const userInputs = [
     {
       id: 1,
-      label: "Username",
+      label: "Name",
+      name : "name",
       type: "text",
-      placeholder: "john_doe",
+      placeholder: "Asif Islam",
     },
     {
       id: 2,
-      label: "Name and surname",
-      type: "text",
-      placeholder: "John Doe",
+      label: "Email",
+      name : "email",
+      type: "email",
+      placeholder: "asif212032@bscse.uiu.ac.bd",
     },
+
     {
       id: 3,
-      label: "Email",
-      type: "mail",
-      placeholder: "john_doe@gmail.com",
-    },
-    {
-      id: 4,
-      label: "Phone",
-      type: "text",
-      placeholder: "+018 223 44 556",
-    },
-    {
-      id: 5,
       label: "Password",
+      name : "password",
       type: "password",
     },
     
