@@ -94,13 +94,21 @@ const NewsLetter = () => {
 
       <div className="newsWrapper">
         <Navbar />
-        <h2 className="title">Send Email </h2>
+        <h2 className="title">Send NewsLetter </h2>
         <div className="newForm">
          
           <form onSubmit={handleSubmit}>
 
             <h3 className="inputTitle">Catagory</h3>
-            <input type="text" className="newsInput"   onBlur={(e) => setCatagory(e.target.value)} />
+            <select className="newsInput" onChange={(e) => setCatagory(e.target.value)}>
+              <option value="all-type">All</option>
+              <option value="essential-type">Essential</option>
+              <option value="app-forum">App Forum</option>
+              <option value="finance-forum">Finance Forum</option>
+              <option value="debate-club">Debate Club</option>
+              <option value="business-club">Business Club</option>
+            </select>
+
 
             <h3  className="inputTitle">Subject</h3>
             <input type="text"  className="newsInput" onBlur={(e) => setSubject(e.target.value)} />
