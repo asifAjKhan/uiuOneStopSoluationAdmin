@@ -13,7 +13,7 @@ import {  useNavigate} from "react-router-dom";
 const NewsLetter = () => {
   const [content, setContent] = useState('');
   const [subject, setSubject] = useState("");
-  const [catagory, setCatagory] = useState("");
+  const [catagory, setCatagory] = useState("all-type");
 
   const [selectedFiles, setSelectedFiles] = useState([]);
 
